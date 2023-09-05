@@ -60,3 +60,4 @@ pytest
 * **tests/:** Unit tests, integration tests, and any other testing code.
 
 * **models/:** If you have any pre-trained models or model checkpoints, they can be stored here.
+* **data/:** All training data, test data, and any other data used in the project should be stored here. This does not include configuration files.
