@@ -5,6 +5,9 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/CogitoNTNU/PropagandaAI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+<img src="https://www.cogito-ntnu.no/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FCogitoBrain1.b7615fb0.webp&w=1920&q=75" width="50%" alt="Cogito Image" style="display: block; margin-left: auto; margin-right: auto;">
+
+
 ## Table of contents
 1. [Introduction](#Introduction)
 2. [Setup](#Setup)
