@@ -13,7 +13,7 @@ To setup the project, one needs to have alle the prerequisites installed. Then o
 Make sure you have Python installed on your machine. This project is developed using Python 3.9 or newer.
 ### Clone the repository
 ```bash
-git clone https://github.com/SverreNystad/PropagandaAI.git
+git clone https://github.com/CogitoNTNU/PropagandaAI.git
 cd PropagandaAI
 ```
 
