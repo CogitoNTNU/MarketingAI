@@ -1,12 +1,8 @@
 # PropagandaAI
 
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/CogitoNTNU/PropagandaAI/main.yml)
-
 ![GitHub top language](https://img.shields.io/github/languages/top/CogitoNTNU/PropagandaAI)
-
 ![GitHub language count](https://img.shields.io/github/languages/count/CogitoNTNU/PropagandaAI)
-
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Table of contents
