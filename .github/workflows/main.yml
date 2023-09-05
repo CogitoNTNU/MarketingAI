@@ -31,3 +31,6 @@ jobs:
     - name: Run tests with pytest
       run: |
         pytest tests
+    - name: Run lintering with ruff
+      run: |
+        ruff src --fix # make ruff run for src folder files and --fix to fix automatically linting errors
