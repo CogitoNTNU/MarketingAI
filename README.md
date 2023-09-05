@@ -31,13 +31,13 @@ pip install virtualenv
 For windows:
 ```bash
 virtualenv venv
-.\venv\Scripts\activate
+source .\venv\Scripts\activate
 ```
 
 For Linux / MacOS:
 ```bash
 virtualenv venv
-source venv/Scripts/activate
+source venv/bin/activate
 ```
 
 ### Install dependencies
