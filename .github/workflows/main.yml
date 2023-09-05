@@ -5,6 +5,7 @@ on:
     branches: 
       - main
       - development
+      - 1-autofix-linter-errors-and-formatting
   pull_request:
     branches: 
       - main
@@ -34,3 +35,4 @@ jobs:
     - name: Run lintering with ruff
       run: |
         ruff src --fix # make ruff run for src folder files and --fix to fix automatically linting errors
+        ruff tests --fix 
