@@ -1,6 +1,12 @@
 # PropagandaAI
 
 ## Table of contents
+1. [Introduction](#Introduction)
+2. [Setup](#Setup)
+3. [Usage](#Usage)
+4. [Tests](#Tests)
+5. [Repository structure](#Repository-structure)
+
 
 ## Introduction
 
