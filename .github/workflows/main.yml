@@ -5,6 +5,7 @@ on:
     branches: 
       - main
       - development
+      - 1-autofix-linter-errors-and-formatting
   pull_request:
     branches: 
       - main
@@ -27,7 +28,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install ruff
         pip install -r requirements.txt
     - name: Run tests with pytest
       run: |
         pytest tests
+    - name: Run lintering with ruff
+      run: |
+        ruff src --fix # make ruff run for src folder files and --fix to fix automatically linting errors
+        ruff tests --fix 
