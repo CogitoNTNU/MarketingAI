@@ -1,4 +1,5 @@
 # PropagandaAI
+<div align="center">
 
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/CogitoNTNU/PropagandaAI/main.yml)
 ![GitHub top language](https://img.shields.io/github/languages/top/CogitoNTNU/PropagandaAI)
@@ -8,6 +9,7 @@
 
 <img src="https://www.cogito-ntnu.no/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FCogitoBrain1.b7615fb0.webp&w=1920&q=75" width="50%" alt="Cogito Image" style="display: block; margin-left: auto; margin-right: auto;">
 
+</div>
 
 ## Table of contents
 1. [Introduction](#Introduction)
