@@ -57,6 +57,19 @@ Once inside the virtual environment, you can install the required packages:
 pip install -r requirements.txt
 ```
 
+
+### Create a .env file
+Create a file called `.env` in the root of the project. This file should contain the following:
+* API_KEY: The API key for the OpenAI API.
+
+NOTE: Never Commit .env to Version Control. The .env file should be kept private and never be committed to public repositories as it contains secretes like API keys.
+  
+```bash
+touch .env
+```
+
+
+
 ## Usage
 
 
