@@ -12,3 +12,4 @@ updates:
     commit-message:
       prefix: "dependency: "
       include: "scope"
+    open-pull-requests-limit: 15
