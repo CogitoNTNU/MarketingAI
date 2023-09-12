@@ -6,6 +6,7 @@ import os
 
 class ImageGenerator:
     MAX_PROMPT_LENGTH = 1000
+    MAX_IMAGE_SIZE = 1024
 
     def get_user_prompt(self):
         image_prompt = input('What do you want to generate an image of? ')
@@ -24,10 +25,30 @@ class ImageGenerator:
         if (len(image_prompt) > self.MAX_PROMPT_LENGTH):
             raise ValueError('Prompt must be less than 1000 characters')
 
-    def generate_image(self, image_prompt: str):
-        self.validate_prompt(image_prompt)
+    def validate_size(self, width: int, height: int):
+        if not isinstance(width, int):
+            raise TypeError('Width must be an integer')
+        
+        if not isinstance(height, int):
+            raise TypeError('Height must be an integer')
+        
+        if width < 1:
+            raise ValueError('Width must be greater than 0')
+        
+        if height < 1:
+            raise ValueError('Height must be greater than 0')
+        
+        if width > self.MAX_IMAGE_SIZE:
+            raise ValueError('Width must be less than 1024')
+        
+        if height > self.MAX_IMAGE_SIZE:
+            raise ValueError('Height must be less than 1024')
 
-        openai.api_key = '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' # TODO: Make sure this is the way we get environment variables
+    def generate_image(self, image_prompt: str, width: int, height: int):
+        self.validate_prompt(image_prompt)
+        self.validate_size(width, height)
+
+        openai.api_key = '' # TODO: Make sure this is the way we get environment variables
         response = openai.Image.create(
             prompt=image_prompt,
             n=1,
@@ -37,6 +58,7 @@ class ImageGenerator:
         return response
 
 if __name__ == "__main__":
-    image_prompt = ImageGenerator.get_user_prompt()
-    response = ImageGenerator.generate_image(image_prompt)
+    image_generator = ImageGenerator()
+    image_prompt = image_generator.get_user_prompt()
+    response = image_generator.generate_image(image_prompt, 512, 512)
     print(response['data'][0]['url'])
