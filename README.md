@@ -46,13 +46,11 @@ python -m venv venv
 
 For windows:
 ```bash
-virtualenv venv
 source .\venv\Scripts\activate
 ```
 
 For Linux / MacOS:
 ```bash
-virtualenv venv
 source venv/bin/activate
 ```
 
