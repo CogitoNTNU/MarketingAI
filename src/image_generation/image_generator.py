@@ -9,9 +9,7 @@ class ImageGenerator:
 
     def get_user_prompt(self) -> str:
         image_prompt = input('What do you want to generate an image of? ')
-        
         self.validate_prompt(image_prompt)
-
         return image_prompt
 
     def validate_prompt(self, image_prompt: str) -> None:
@@ -47,24 +45,28 @@ class ImageGenerator:
             raise ValueError('Width and height must be equal')
         
         valid_sizes = [256, 512, 1024]
-
         if (width not in valid_sizes):
             raise ValueError('Width must be 256, 512, or 1024')
-        
-        if (height not in valid_sizes):
-            raise ValueError('Height must be 256, 512, or 1024')
 
     def generate_image(self, image_prompt: str, width: int, height: int) -> dict:
+        '''
+        Generates an image from a prompt of a certain size
+        Args:
+            image_prompt (str): The prompt to generate the image from. Must be less than 1000 characters.
+            width (int): The width of the image. Must be 256, 512, or 1024
+            height (int): The height of the image. Must be 256, 512, or 1024
+        Returns:
+            A dictionary containing the image url
+        '''
         self.validate_prompt(image_prompt)
         self.validate_size(width, height)
-
+        size = str(width) + 'x' + str(height)
         openai.api_key = '' # TODO: Make sure this is the way we get environment variables
         response = openai.Image.create(
             prompt=image_prompt,
             n=1,
-            size="1024x1024"
+            size=size
         )
-        print(response)
         return response
 
 if __name__ == "__main__":
