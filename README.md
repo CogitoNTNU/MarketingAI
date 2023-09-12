@@ -69,7 +69,7 @@ Then select the relevant virtual environment as shown
 
 ![img](/docs/img/vscodeSettup.png)
 
-Now ypu can utilize all the installed goodies form the environment ;)
+Now you can utilize all the installed goodies form the environment ;)
 
 ### Create a .env file
 Create a file called `.env` in the root of the project. This file should contain the following:
