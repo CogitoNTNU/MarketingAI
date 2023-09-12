@@ -79,6 +79,7 @@ NOTE: Never Commit .env to Version Control. The .env file should be kept private
   
 ```bash
 touch .env
+echo "API_KEY=YOUR_API_KEY" > .env # Remember to change YOUR_API_KEY to your actual API key
 ```
 
 
