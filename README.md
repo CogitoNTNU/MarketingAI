@@ -62,6 +62,14 @@ Once inside the virtual environment, you can install the required packages:
 pip install -r requirements.txt
 ```
 
+### Settup VSCode with virtual environment
+With VSCode opened press ```Ctrl+Shift+P``` and search for ```python: Select Interpreter``` and click on it
+
+Then select the relevant virtual environment as shown
+
+![img](/docs/img/vscodeSettup.png)
+
+Now you can utilize all the installed goodies form the environment ;)
 
 ### Create a .env file
 Create a file called `.env` in the root of the project. This file should contain the following:
@@ -71,6 +79,7 @@ NOTE: Never Commit .env to Version Control. The .env file should be kept private
   
 ```bash
 touch .env
+echo "API_KEY=YOUR_API_KEY" > .env # Remember to change YOUR_API_KEY to your actual API key
 ```
 
 
