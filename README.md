@@ -62,6 +62,14 @@ Once inside the virtual environment, you can install the required packages:
 pip install -r requirements.txt
 ```
 
+### Settup VSCode with virtual environment
+With VSCode opened press ```Ctrl+Shift+P``` and search for ```python: Select Interpreter``` and click on it
+
+Then select the relevant virtual environment as shown
+
+![img](/docs/img/vscodeSettup.png)
+
+Now ypu can utilize all the installed goodies form the environment ;)
 
 ### Create a .env file
 Create a file called `.env` in the root of the project. This file should contain the following:
