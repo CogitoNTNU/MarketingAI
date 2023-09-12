@@ -1,10 +1,11 @@
 import os
 import openai
+import config
 
 try:
     # Set OpenAI API key
-    temp_key:str = "Legg inn API key her"
-    openai.api_key = temp_key
+    api_key = config.api_key
+    openai.api_key = api_key
 except:
     print("OpenAI API key not found. Please set the environment variable OPENAI_API_KEY to your API key.")
     exit(1)
