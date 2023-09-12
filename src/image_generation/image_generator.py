@@ -2,20 +2,19 @@
 # The class uses the OpenAI API to generate images
 
 import openai
-import os
 
 class ImageGenerator:
     MAX_PROMPT_LENGTH = 1000
     MAX_IMAGE_SIZE = 1024
 
-    def get_user_prompt(self):
+    def get_user_prompt(self) -> str:
         image_prompt = input('What do you want to generate an image of? ')
         
         self.validate_prompt(image_prompt)
 
         return image_prompt
 
-    def validate_prompt(self, image_prompt: str):
+    def validate_prompt(self, image_prompt: str) -> None:
         if not isinstance(image_prompt, str):
             raise TypeError('Prompt must be a string')
         
@@ -25,7 +24,7 @@ class ImageGenerator:
         if (len(image_prompt) > self.MAX_PROMPT_LENGTH):
             raise ValueError('Prompt must be less than 1000 characters')
 
-    def validate_size(self, width: int, height: int):
+    def validate_size(self, width: int, height: int) -> None:
         if not isinstance(width, int):
             raise TypeError('Width must be an integer')
         
@@ -43,8 +42,19 @@ class ImageGenerator:
         
         if height > self.MAX_IMAGE_SIZE:
             raise ValueError('Height must be less than 1024')
+        
+        if (width != height):
+            raise ValueError('Width and height must be equal')
+        
+        valid_sizes = [256, 512, 1024]
 
-    def generate_image(self, image_prompt: str, width: int, height: int):
+        if (width not in valid_sizes):
+            raise ValueError('Width must be 256, 512, or 1024')
+        
+        if (height not in valid_sizes):
+            raise ValueError('Height must be 256, 512, or 1024')
+
+    def generate_image(self, image_prompt: str, width: int, height: int) -> dict:
         self.validate_prompt(image_prompt)
         self.validate_size(width, height)
 

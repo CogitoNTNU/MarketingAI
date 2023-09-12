@@ -114,13 +114,47 @@ def test_image_generation_with_too_large_height():
         result = image_generator.generate_image(valid_prompt, valid_width, too_large_height)
         # Assert
 
+def test_image_generation_with_width_not_equal_to_height():
+    # Arrange
+
+    image_generator = ImageGenerator()
+    width_not_equal_to_height = 512
+    valid_prompt = "A picture of a cat"
+    with pytest.raises(ValueError):
+        # Act
+        result = image_generator.generate_image(valid_prompt, width_not_equal_to_height, width_not_equal_to_height + 1)
+        # Assert
+
+def test_image_generation_with_invalid_width():
+    # Arrange
+
+    image_generator = ImageGenerator()
+    invalid_width = 300
+    valid_prompt = "A picture of a cat"
+    with pytest.raises(ValueError):
+        # Act
+        result = image_generator.generate_image(valid_prompt, invalid_width, invalid_width)
+        # Assert
+
+def test_image_generation_with_invalid_height():
+    # Arrange
+
+    image_generator = ImageGenerator()
+    invalid_height = 300
+    valid_prompt = "A picture of a cat"
+    with pytest.raises(ValueError):
+        # Act
+        result = image_generator.generate_image(valid_prompt, invalid_height, invalid_height)
+        # Assert
+
 @pytest.mark.apitest
 def test_image_generation_with_valid_prompt():
     # Arrange
 
     image_generator = ImageGenerator()
+    valid_size = 256
     valid_prompt = "A picture of a cat"
     # Act
-    result = image_generator.generate_image(valid_prompt, 1, 1)
+    result = image_generator.generate_image(valid_prompt, valid_size, valid_size)
     # Assert
     assert result is not None
