@@ -1,4 +1,15 @@
 # PropagandaAI
+<div align="center">
+
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/CogitoNTNU/PropagandaAI/main.yml)
+![GitHub top language](https://img.shields.io/github/languages/top/CogitoNTNU/PropagandaAI)
+![GitHub language count](https://img.shields.io/github/languages/count/CogitoNTNU/PropagandaAI)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Project Version](https://img.shields.io/badge/version-0.0.2-blue)](https://img.shields.io/badge/version-0.0.1-blue)
+
+<img src="https://www.cogito-ntnu.no/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FCogitoBrain1.b7615fb0.webp&w=1920&q=75" width="50%" alt="Cogito Image" style="display: block; margin-left: auto; margin-right: auto;">
+
+</div>
 
 ## Table of contents
 1. [Introduction](#Introduction)
@@ -28,16 +39,21 @@ cd PropagandaAI
 pip install virtualenv
 ```
 
+### Create virtual environment
+```bash
+python -m venv venv
+```
+
 For windows:
 ```bash
 virtualenv venv
-.\venv\Scripts\activate
+source .\venv\Scripts\activate
 ```
 
 For Linux / MacOS:
 ```bash
 virtualenv venv
-source venv/Scripts/activate
+source venv/bin/activate
 ```
 
 ### Install dependencies
@@ -45,6 +61,19 @@ Once inside the virtual environment, you can install the required packages:
 ```bash
 pip install -r requirements.txt
 ```
+
+
+### Create a .env file
+Create a file called `.env` in the root of the project. This file should contain the following:
+* API_KEY: The API key for the OpenAI API.
+
+NOTE: Never Commit .env to Version Control. The .env file should be kept private and never be committed to public repositories as it contains secretes like API keys.
+  
+```bash
+touch .env
+```
+
+
 
 ## Usage
 
