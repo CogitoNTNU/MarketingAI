@@ -39,6 +39,11 @@ cd PropagandaAI
 pip install virtualenv
 ```
 
+### Create virtual environment
+```bash
+python -m venv venv
+```
+
 For windows:
 ```bash
 virtualenv venv
