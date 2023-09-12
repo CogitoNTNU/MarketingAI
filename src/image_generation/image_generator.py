@@ -3,6 +3,8 @@
 
 import openai
 
+from src.config import Config
+
 class ImageGenerator:
     MAX_PROMPT_LENGTH = 1000
     SUPPORTED_SIZES = [256, 512, 1024]
@@ -48,7 +50,7 @@ class ImageGenerator:
         self._validate_prompt(image_prompt)
         self._validate_size(width, height)
         size = str(width) + 'x' + str(height)
-        openai.api_key = '' # TODO: Make sure this is the way we get environment variables
+        openai.api_key = Config().API_KEY
         response = openai.Image.create(
             prompt=image_prompt,
             n=1,
