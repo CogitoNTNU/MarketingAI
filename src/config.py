@@ -14,4 +14,3 @@ class Config():
             return os.getenv(testcase)
         else:
             return "Wrong config file for testing"
-

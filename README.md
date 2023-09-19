@@ -5,7 +5,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/CogitoNTNU/PropagandaAI)
 ![GitHub language count](https://img.shields.io/github/languages/count/CogitoNTNU/PropagandaAI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Project Version](https://img.shields.io/badge/version-0.0.2-blue)](https://img.shields.io/badge/version-0.0.1-blue)
+[![Project Version](https://img.shields.io/badge/version-0.0.5-blue)](https://img.shields.io/badge/version-0.0.5-blue)
 
 <img src="https://www.cogito-ntnu.no/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FCogitoBrain1.b7615fb0.webp&w=1920&q=75" width="50%" alt="Cogito Image" style="display: block; margin-left: auto; margin-right: auto;">
 
@@ -46,13 +46,11 @@ python -m venv venv
 
 For windows:
 ```bash
-virtualenv venv
-source .\venv\Scripts\activate
+source ./venv/Scripts/activate
 ```
 
 For Linux / MacOS:
 ```bash
-virtualenv venv
 source venv/bin/activate
 ```
 
