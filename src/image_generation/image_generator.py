@@ -1,5 +1,7 @@
-# The class is a wrapper class for generating images from a prompt
-# The class uses the OpenAI API to generate images
+'''
+The class is a wrapper class for generating images from a prompt
+The class uses the OpenAI API to generate images
+'''
 
 import openai
 
