@@ -2,8 +2,12 @@
 # The class uses the OpenAI API to generate images
 
 import openai
+import logging
 
 from src.config import Config
+
+# Setup logger
+logger = logging.getLogger(__name__)
 
 class ImageGenerator:
     MAX_PROMPT_LENGTH = 1000
@@ -56,10 +60,8 @@ class ImageGenerator:
             n=1,
             size=size
         )
-        return response
+        parse_url = response["data"][0]["url"]
 
-if __name__ == "__main__":
-    image_generator = ImageGenerator()
-    image_prompt = image_generator.get_user_prompt()
-    response = image_generator.generate_image(image_prompt, 512, 512)
-    print(response['data'][0]['url'])
+        logging.info(f'Generated image from prompt: {image_prompt}, size: {size}, url: {parse_url}')
+
+        return parse_url
