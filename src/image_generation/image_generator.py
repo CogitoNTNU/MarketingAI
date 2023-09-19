@@ -8,6 +8,9 @@ import openai
 from src.config import Config
 
 class ImageGenerator:
+    """
+     A class to generate images from a given prompt using the OpenAI API
+    """
     MAX_PROMPT_LENGTH = 1000
     SUPPORTED_SIZES = [256, 512, 1024]
 
