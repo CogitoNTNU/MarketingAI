@@ -60,8 +60,8 @@ class ImageGenerator:
             n=1,
             size=size
         )
-
-        logging.info(f'Generated image from prompt: {image_prompt}, size: {size}, url: {response["data"][0]["url"]}')
-
         parse_url = response["data"][0]["url"]
+
+        logging.info(f'Generated image from prompt: {image_prompt}, size: {size}, url: {parse_url}')
+
         return parse_url
