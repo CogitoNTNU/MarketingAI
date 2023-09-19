@@ -18,11 +18,12 @@ def request_chat_completion(previous_message:dict, role:str = "system",message :
     try:
         if(not (role == "system" or "user" or "assistant")):
             print("Invalid role")
-            return None
+            return ""
         
+
         if(previous_message):
             response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model=Config().GPT_MODEL,
             messages=[
                 previous_message,
                 {"role": role, "content": message}
@@ -30,7 +31,7 @@ def request_chat_completion(previous_message:dict, role:str = "system",message :
             )
         else: 
             response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model=Config().GPT_MODEL,
             messages=[
                 {"role": role, "content": message}, 
             ]
@@ -40,7 +41,7 @@ def request_chat_completion(previous_message:dict, role:str = "system",message :
     except OpenAIError as error:
         print(f"An error has occured while requesting chat completion.")
         print(f"The error: {str(error)}")
-        return None
+        return ""
     except Exception as e: 
         print(f"An unexpected error occured: {str(e)}")
-        return None
+        return ""
