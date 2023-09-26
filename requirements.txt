@@ -18,5 +18,5 @@ python-dotenv==1.0.0
 requests==2.31.0
 tomli==2.0.1
 tqdm==4.66.1
-urllib3==2.0.4
+urllib3==2.0.5
 yarl==1.9.2
