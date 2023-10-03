@@ -6,6 +6,10 @@ The class uses the OpenAI API to generate images
 import openai
 import logging
 
+import requests
+from PIL import Image
+from io import BytesIO
+
 from src.config import Config
 
 # Setup logger
@@ -70,3 +74,20 @@ class ImageGenerator:
         logging.info(f'Generated image from prompt: {image_prompt}, size: {size}, url: {parse_url}')
 
         return parse_url
+    
+
+SAVE_PATH = "data/raw_images/"
+
+def download_and_save_image(image_url: str, image_name: str) -> None:
+    """ Download and save an image from a given URL. """
+    try:
+        response = requests.get(image_url)
+        response.raise_for_status()  # Check if the request was successful
+        
+        image = Image.open(BytesIO(response.content))
+        image.save(SAVE_PATH + image_name + ".png")
+        print(f"Image saved to {SAVE_PATH + image_name + '.png'}")
+    except requests.RequestException as e:
+        print(f"Failed to fetch image from URL: {e}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
