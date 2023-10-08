@@ -26,12 +26,13 @@ print(image_url)
 
 # Save image to file
 logger.info('Saving image to file')
-download_and_save_image(image_url, image_prompt)
+download_and_save_image(image_url, user_prompt)
 
 # generate image text
 logger.info('Generating image text')
-template = f"This is a picture of {image_prompt}. Generate a captivating and relevant caption for a poster."
-result = "Text"
+template = f"This is a picture of {image_prompt}. Generate a short captivating and relevant caption for a poster. The response should not contain any other information than the caption."
+result = request_chat_completion(None, 'system', template)
+# result = "Midterm presentation!"
 # Assemble image
 logger.info('Assembling image')
-assemble_image(image_prompt, result, "arial.ttf", 50, (255, 155, 155), (30, 50))
+assemble_image(user_prompt, result, "arial.ttf", 50, (255, 155, 155), (30, 50))
