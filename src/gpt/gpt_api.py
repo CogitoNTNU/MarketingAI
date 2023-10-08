@@ -15,7 +15,7 @@ except:
 
 def request_chat_completion(previous_message:dict, role:str = "system",message :str = ""): 
    
-    previous_message = get_system_prompt()
+    # previous_message = get_system_prompt()
 
     try:
         if(not (role == "system" or "user" or "assistant")):
@@ -39,7 +39,7 @@ def request_chat_completion(previous_message:dict, role:str = "system",message :
             ]
             )
         print(response)
-        return response
+        return response["choices"][0]["message"]["content"]
     except OpenAIError as error:
         print(f"An error has occured while requesting chat completion.")
         print(f"The error: {str(error)}")
@@ -48,8 +48,8 @@ def request_chat_completion(previous_message:dict, role:str = "system",message :
         print(f"An unexpected error occured: {str(e)}")
         return ""
     
-def get_system_prompt():
-    role = "system"
-    systemprompt = "Everything genereated should have mustache theme and no propmt should be more than 1500 characters"
-    message = {"role": role, "content": systemprompt}
-    return message
+# def get_system_prompt():
+#     role = "system"
+#     systemprompt = "Everything genereated should have mustache theme and no propmt should be more than 1500 characters"
+#     message = {"role": role, "content": systemprompt}
+#     return message
