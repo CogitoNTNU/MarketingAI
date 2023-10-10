@@ -50,7 +50,7 @@ class ImageGenerator:
         if (width not in self.SUPPORTED_SIZES):
             raise ValueError(f'Width must be {self.SUPPORTED_SIZES}')
 
-    def generate_image(self, image_prompt: str, width: int, height: int) -> dict:
+    def generate_image(self, image_prompt: str, width: int, height: int) -> str:
         '''
         Generates an image from a prompt of a certain size
         Args:
@@ -58,7 +58,7 @@ class ImageGenerator:
             width (int): The width of the image. Must be 256, 512, or 1024
             height (int): The height of the image. Must be 256, 512, or 1024
         Returns:
-            A dictionary containing the image url
+            The URL of the generated image
         '''
         self._validate_prompt(image_prompt)
         self._validate_size(width, height)
