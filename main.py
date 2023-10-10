@@ -1,6 +1,6 @@
 from src.assembler.image_text_assambler import assemble_image
-from src.image_generation.image_generator import ImageGenerator, download_and_save_image
-from src.gpt.gpt_api import request_chat_completion
+from src.image_generation.image_generator import ImageGenerator, create_image_generator, download_and_save_image
+from src.gpt.text_generator import request_chat_completion
 import logging
 
 
@@ -20,9 +20,9 @@ image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful 
 logger.info('Generating Text on prompt')
 logger.info(f'Starting image generation based on prompt: {image_prompt}')
 
-image_generator = ImageGenerator()
+image_generator: ImageGenerator = create_image_generator('dall-e')
 image_url = image_generator.generate_image(image_prompt, 512, 512)
-print(image_url)
+logger.info(f"Image url: {image_url}")
 
 # Save image to file
 logger.info('Saving image to file')
@@ -32,7 +32,7 @@ download_and_save_image(image_url, user_prompt)
 logger.info('Generating image text')
 template = f"This is a picture of {image_prompt}. Generate a short captivating and relevant caption for a poster. The response should not contain any other information than the caption."
 result = request_chat_completion(None, 'system', template)
-# result = "Midterm presentation!"
+logger.info(f'Generated image text: {result}')
 # Assemble image
 logger.info('Assembling image')
 assemble_image(user_prompt, result, "arial.ttf", 50, (255, 155, 155), (30, 50))
