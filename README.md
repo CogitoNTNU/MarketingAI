@@ -103,3 +103,15 @@ pytest
 
 * **models/:** If you have any pre-trained models or model checkpoints, they can be stored here.
 * **data/:** All training data, test data, and any other data used in the project should be stored here. This does not include configuration files.
+
+
+## Contributors
+* Daniel Neukirch Hansen
+* Eduard Prokhorikhin
+* Jørgen Haugdal Jore
+* Kristoffer Nohr Olaisen
+* Olav Selnes Lorentzen
+* Sverre Nystad
+* Sveinung Myhre
+* Simon Sandvik Lee
+This project could not have been possible without all of the wonderful contributors. Thank you all for your hard work!
