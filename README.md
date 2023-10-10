@@ -111,12 +111,65 @@ pytest
 
 
 ## Contributors
-* Daniel Neukirch Hansen
-* Eduard Prokhorikhin
-* Jørgen Haugdal Jore
-* Kristoffer Nohr Olaisen
-* Olav Selnes Lorentzen
-* Sverre Nystad
-* Sveinung Myhre
-* Simon Sandvik Lee
+<table>
+  <tr>
+    <td align="center">
+        <a href="https://github.com/Spiderpig02">
+            <img src="https://github.com/Spiderpig02.png?size=100" width="100px;" alt="Daniel Neukirch Hansen"/><br />
+            <sub><b>Daniel Neukirch Hansen</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Eduard-Prokhorikhin">
+            <img src="https://github.com/Eduard-Prokhorikhin.png?size=100" width="100px;" alt="Eduard Prokhorikhin"/><br />
+            <sub><b>Eduard Prokhorikhin</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/HFossdal">
+            <img src="https://github.com/HFossdal.png?size=100" width="100px;" alt="Håvard Fossdal"/><br />
+            <sub><b>Håvard Fossdal</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/JHJORE">
+            <img src="https://github.com/JHJORE.png?size=100" width="100px;" alt="Jørgen Haugdal Jore"/><br />
+            <sub><b>Jørgen Haugdal Jore</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/Knolaisen">
+            <img src="https://github.com/Knolaisen.png?size=100" width="100px;" alt="Kristoffer Nohr Olaisen"/><br />
+            <sub><b>Kristoffer Nohr Olaisen</b></sub>
+        </a>
+    </td>
+    <!-- More contributors... -->
+    <td align="center">
+        <a href="https://github.com/olavsl">
+            <img src="https://github.com/olavsl.png?size=100" width="100px;" alt="Olav Selnes Lorentzen"/><br />
+            <sub><b>Olav Selnes Lorentzen</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/SverreNystad">
+            <img src="https://github.com/SverreNystad.png?size=100" width="100px;"/><br />
+            <sub><b>Sverre Nystad</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/svemyh">
+            <img src="https://github.com/svemyh.png?size=100" width="100px;" alt="Sveinung Myhre"/><br />
+            <sub><b>Sveinung Myhre</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/eduardprokhorikhin">
+            <img src="https://github.com/eduardprokhorikhin.png?size=100" width="100px;" alt="Kristoffer Nohr Olaisen"/><br />
+            <sub><b>Simon Sandvik Lee</b></sub>
+        </a>
+    </td>
+  
+  </tr>
+</table>
+
 This project could not have been possible without all of the wonderful contributors. Thank you all for your hard work!
