@@ -20,7 +20,11 @@
 
 
 ## Introduction
+<div align="center">
+
 ![HelloPropagandaAI](data/assembled_images/HelloPropagandaAI.png)
+
+</div>
 **Our goal:** A software application is that allows users to input specific themes or topics for a meme or propaganda poster. Following this input, the application should be capable of autonomously generating relevant imagery and accompanying text. Subsequently, it should seamlessly integrate these elements to produce a cohesive poster
 
 ## Setup
