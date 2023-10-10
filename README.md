@@ -163,8 +163,8 @@ pytest
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/eduardprokhorikhin">
-            <img src="https://github.com/eduardprokhorikhin.png?size=100" width="100px;" alt="Kristoffer Nohr Olaisen"/><br />
+        <a href="https://github.com/sandviklee">
+            <img src="https://github.com/sandviklee.png?size=100" width="100px;" alt="Simon Sandvik Lee"/><br />
             <sub><b>Simon Sandvik Lee</b></sub>
         </a>
     </td>
