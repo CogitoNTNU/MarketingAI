@@ -3,6 +3,8 @@ The class is a wrapper class for generating images from a prompt
 The class uses the OpenAI API to generate images
 '''
 
+from abc import ABC, ABCMeta, abstractmethod
+from typing import Any
 import openai
 import logging
 
@@ -15,7 +17,50 @@ from src.config import Config
 # Setup logger
 logger = logging.getLogger(__name__)
 
-class ImageGenerator:
+class ImageGenerator(ABC):
+    '''
+    Abstract class for generating images from a given prompt
+    '''
+
+    @classmethod
+    def __instancecheck__(cls, instance):
+        return cls.__subclasscheck__(type(instance))
+    
+    @classmethod
+    def __subclasscheck__(cls: ABCMeta, subclass: type) -> bool:
+        return (hasattr(subclass, 'generate_image') and 
+                callable(subclass.generate_image))
+
+    @abstractmethod
+    def generate_image(self, image_prompt: str, width: int, height: int) -> str:
+        '''
+        Generates an image from a prompt of a certain size
+        Args:
+            image_prompt (str): The prompt to generate the image from. Must be less than 1000 characters.
+            width (int): The width of the image. Must be 256, 512, or 1024
+            height (int): The height of the image. Must be 256, 512, or 1024
+        Returns:
+            The URL of the generated image
+        '''
+        pass
+
+
+
+def create_image_generator(model_name: str) -> ImageGenerator:
+    '''
+    Creates an image generator based on the config
+    Returns:
+        An image generator
+    '''
+    model_name = model_name.lower()
+    if model_name == 'dall-e':
+        image_generator = DallEImageGenerator()
+    else:
+        raise ValueError(f'Invalid model name: {model_name}')
+    return image_generator
+
+
+class DallEImageGenerator(ImageGenerator):
     """
      A class to generate images from a given prompt using the OpenAI API
     """
