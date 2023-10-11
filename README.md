@@ -151,15 +151,15 @@ pytest
         </a>
     </td>
     <td align="center">
-        <a href="https://github.com/SverreNystad">
-            <img src="https://github.com/SverreNystad.png?size=100" width="100px;"/><br />
-            <sub><b>Sverre Nystad</b></sub>
-        </a>
-    </td>
-    <td align="center">
         <a href="https://github.com/svemyh">
             <img src="https://github.com/svemyh.png?size=100" width="100px;" alt="Sveinung Myhre"/><br />
             <sub><b>Sveinung Myhre</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/SverreNystad">
+            <img src="https://github.com/SverreNystad.png?size=100" width="100px;"/><br />
+            <sub><b>Sverre Nystad</b></sub>
         </a>
     </td>
     <td align="center">
