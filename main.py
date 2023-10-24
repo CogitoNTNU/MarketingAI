@@ -7,13 +7,13 @@ import logging
 
 
 # Set up logging
-logging.basicConfig(filename='PropagandaAI.log',
+logging.basicConfig(filename='MarketingAI.log',
                     level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 logger = logging.getLogger(__name__)
 
-logger.info('Starting PropagandaAI')
+logger.info('Starting MarketingAI')
 user_prompt: str = input('What shall PropogandaAI generate: ')
 
 answers = run_agent(user_prompt)
