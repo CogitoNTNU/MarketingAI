@@ -15,7 +15,7 @@ logging.basicConfig(filename='MarketingAI.log',
 logger = logging.getLogger(__name__)
 
 logger.info('Starting MarketingAI')
-user_prompt: str = input('What shall PropogandaAI generate: ')
+user_prompt: str = input('What shall MarketingAI generate: ')
 
 # Don't use framework:
 prompt_and_parse()
