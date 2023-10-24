@@ -5,7 +5,7 @@ from src.gpt.text_generator import request_chat_completion
 import logging
 from PIL import Image
 
-# Set up logging    
+# Set up logging
 logging.basicConfig(filename='PropagandaAI.log',
                     level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def generate_image_from_prompt(prompt: str, show_on_screen: bool = False) -> Image:
     """ Generates an image from a prompt and saves it to file and returns the image"""
-    logger.info('Starting PropagandaAI')
+    logger.info('Starting MarketingAI')
     # Create the image prompt
     user_prompt: str = prompt
     image_prompt = f"(Classic propaganda poster: Bold, primary colors) {user_prompt}"
