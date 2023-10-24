@@ -1,9 +1,11 @@
-from langchain import OpenAI
+from langchain.llms.openai import OpenAI
 from langchain.tools import StructuredTool
 from langchain.agents import AgentType
 from langchain.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent
 import logging
+
+from src.config import Config
 
 # Set up logging
 logger = logging.getLogger(__name__)
@@ -28,14 +30,20 @@ tools: list[StructuredTool] = [
         name= "A dummy function", 
         func=dummy_function, 
         description="Generates a NPC based on the given prompt.",
-        args_schema={"prompt": {"type": "string", "minLength": 1, "maxLength": 1000}},
+        # args_schema={"prompt": {"type": "string", "minLength": 1, "maxLength": 1000}},
+    ),
+    StructuredTool.from_function(
+        name= "Add two numbers", 
+        func=add, 
+        description="Adds two numbers together.",
+        # args_schema={"a": {"type": "integer"}, "b": {"type": "integer"}},
     ),
 ]
 
 # Make a memory for the agent to use
 memory = ConversationBufferMemory(memory_key="chat_history")
 
-llm = OpenAI(temperature=0)
+llm = OpenAI(temperature=0, openai_api_key=Config().API_KEY)
 agent_chain = initialize_agent(
     tools, 
     llm, 
@@ -57,7 +65,3 @@ def run_agent(prompt: str) -> str:
     logger.info(f"Finished running langchain_function_calling.py, result: {result}")
     return result
 
-if __name__ == "__main__":
-    tool = StructuredTool.from_function(add)
-    answer = tool.run(1, 2) # 3
-    print(answer)
