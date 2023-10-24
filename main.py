@@ -14,7 +14,7 @@ logging.basicConfig(filename='PropagandaAI.log',
 logger = logging.getLogger(__name__)
 
 logger.info('Starting PropagandaAI')
-user_prompt: str = input('What shall PropogandaAI generate: ')
+user_prompt: str = input('What shall MarketingAI generate: ')
 
 answers = run_agent(user_prompt)
 logger.info(f"Finished running langchain_function_calling.py, result: {answers}")
