@@ -1,9 +1,9 @@
-# PropagandaAI
+# MarketingAI
 <div align="center">
 
-![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/CogitoNTNU/PropagandaAI/main.yml)
-![GitHub top language](https://img.shields.io/github/languages/top/CogitoNTNU/PropagandaAI)
-![GitHub language count](https://img.shields.io/github/languages/count/CogitoNTNU/PropagandaAI)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/CogitoNTNU/MarketingAI/main.yml)
+![GitHub top language](https://img.shields.io/github/languages/top/CogitoNTNU/MarketingAI)
+![GitHub language count](https://img.shields.io/github/languages/count/CogitoNTNU/MarketingAI)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Project Version](https://img.shields.io/badge/version-0.0.5-blue)](https://img.shields.io/badge/version-0.0.5-blue)
 
@@ -35,8 +35,8 @@ To setup the project, one needs to have alle the prerequisites installed. Then o
 Make sure you have Python installed on your machine. This project is developed using Python 3.9 or newer.
 ### Clone the repository
 ```bash
-git clone https://github.com/CogitoNTNU/PropagandaAI.git
-cd PropagandaAI
+git clone https://github.com/CogitoNTNU/MarketingAI.git
+cd MarketingAI
 ```
 
 ### Setup virtual environment
