@@ -3,22 +3,29 @@ from src.function_calling.langchain_function_calling import run_agent
 from src.function_calling.no_framework_function_calling import prompt_and_parse
 from src.image_generation.image_generator import ImageGenerator, create_image_generator, download_and_save_image
 from src.gpt.text_generator import request_chat_completion
+from src.assembler.text_color import chose_color
+from src.assembler.text_size_pos import chose_font_size
 import logging
 
 
 
+"""Run the agent."""
+prompt = input("Prompt: ")
+result = run_agent(prompt)
+print(f"Result: {result}")
+
 # Set up logging
-logging.basicConfig(filename='MarketingAI.log',
-                    level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# logging.basicConfig(filename='MarketingAI.log',
+#                     level=logging.INFO,
+#                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-# logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
-logger.info('Starting MarketingAI')
-user_prompt: str = input('What shall MarketingAI generate: ')
+# logger.info('Starting MarketingAI')
+# user_prompt: str = input('What shall MarketingAI generate: ')
 
 # Don't use framework:
-prompt_and_parse()
+# prompt_and_parse()
 
 
 # # Use framework:
