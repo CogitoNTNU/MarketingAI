@@ -10,7 +10,7 @@ csv_filename = next((f for f in os.listdir(script_dir) if f.endswith('.csv')), N
 
 if csv_filename:
     csv_filepath = os.path.join(script_dir, csv_filename)
-    jsonl_filename = "propaganda.jsonl"
+    jsonl_filename = "MarketingFinetuning.jsonl"
     
     # Define the field names based on the structure of your CSV
     fieldnames = ["prompt", "response"]
