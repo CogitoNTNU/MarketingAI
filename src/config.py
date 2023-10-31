@@ -14,6 +14,9 @@ class Config():
         self.GPT_MODEL = gpt_model
         load_dotenv(dotenv_path=path)
         self.API_KEY = os.getenv('API_KEY')
+        self.STABLE_DIFFUSION_API_KEY = os.getenv("STABLE_DIFFUSION_API_KEY")
+        self.DALL_E_API_KEY = os.getenv("DALL_E_API_KEY")
+
     
     def get_testcase(self, testcase):
         """

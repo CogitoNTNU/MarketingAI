@@ -14,13 +14,13 @@ logger = logging.getLogger(__name__)
 
 logger.info('Starting PropagandaAI')
 user_prompt: str = input('What shall PropogandaAI generate: ')
-image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful " + user_prompt
+image_prompt = user_prompt + "(Classic propaganda poster: Bold, primary colors) "
 # result: str = request_chat_completion(None, 'system', prompt)["choices"][0]["message"]["content"]
 
 logger.info('Generating Text on prompt')
 logger.info(f'Starting image generation based on prompt: {image_prompt}')
 
-image_generator: ImageGenerator = create_image_generator('dall-e')
+image_generator: ImageGenerator = create_image_generator('stable-diffusion')
 image_url = image_generator.generate_image(image_prompt, 512, 512)
 logger.info(f"Image url: {image_url}")
 

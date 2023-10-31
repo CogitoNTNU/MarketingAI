@@ -4,9 +4,11 @@ The class uses the OpenAI API to generate images
 '''
 
 from abc import ABC, ABCMeta, abstractmethod
+from time import sleep
 from typing import Any
 import openai
 import logging
+import json
 
 import requests
 from PIL import Image
@@ -21,15 +23,16 @@ class ImageGenerator(ABC):
     '''
     Abstract class for generating images from a given prompt
     '''
-
     @classmethod
-    def __instancecheck__(cls, instance):
+    def __instancecheck__(cls, instance: Any) -> bool:
         return cls.__subclasscheck__(type(instance))
     
     @classmethod
-    def __subclasscheck__(cls: ABCMeta, subclass: type) -> bool:
-        return (hasattr(subclass, 'generate_image') and 
-                callable(subclass.generate_image))
+    def __subclasscheck__(cls, subclass: Any) -> bool:
+        return (
+            hasattr(subclass, 'generate_image') and
+            callable(subclass.generate_image)
+        )   
 
     @abstractmethod
     def generate_image(self, image_prompt: str, width: int, height: int) -> str:
@@ -45,7 +48,6 @@ class ImageGenerator(ABC):
         pass
 
 
-
 def create_image_generator(model_name: str) -> ImageGenerator:
     '''
     Creates an image generator based on the config
@@ -55,10 +57,65 @@ def create_image_generator(model_name: str) -> ImageGenerator:
     model_name = model_name.lower()
     if model_name == 'dall-e':
         image_generator = DallEImageGenerator()
+
+    elif model_name == 'stable-diffusion':
+        image_generator = StableDiffusionImageGenerator()
     else:
         raise ValueError(f'Invalid model name: {model_name}')
     return image_generator
 
+
+class StableDiffusionImageGenerator(ImageGenerator):
+
+    def generate_image(self, image_prompt: str, width: int, height: int) -> str:
+        '''
+        Generates an image from a prompt of a certain size
+        Args:
+            image_prompt (str): The prompt to generate the image from. Must be less than 1000 characters.
+            width (int): The width of the image. Must be 256, 512, or 1024
+            height (int): The height of the image. Must be 256, 512, or 1024
+        Returns:
+            The URL of the generated image
+        '''
+        url = "https://stablediffusionapi.com/api/v4/dreambooth"
+
+        payload = json.dumps({
+        "key": Config().STABLE_DIFFUSION_API_KEY,
+        "model_id": "midjourney",
+        "prompt": image_prompt,
+        "negative_prompt": "text",
+        "width": "1024",
+        "height": "1024",
+        "samples": "1",
+        "num_inference_steps": "30",
+        "safety_checker": "no",
+        "enhance_prompt": "yes",
+        "seed": None,
+        "guidance_scale": 7.5,
+        "multi_lingual": "no",
+        "panorama": "no",
+        "self_attention": "no",
+        "upscale": "no",
+        "embeddings_model": None,
+        "lora_model": None,
+        "tomesd": "yes",
+        "use_karras_sigmas": "yes",
+        "vae": None,
+        "lora_strength": None,
+        "scheduler": "UniPCMultistepScheduler",
+        "webhook": None,
+        "track_id": None
+        })
+
+        headers = {
+        'Content-Type': 'application/json'
+        }
+
+        response = requests.request("POST", url, headers=headers, data=payload)
+        sleep(8)
+        print(response.json())
+
+        return response.json()["output"][0]
 
 class DallEImageGenerator(ImageGenerator):
     """
