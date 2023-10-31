@@ -5,20 +5,26 @@ from src.image_generation.image_generator import ImageGenerator, create_image_ge
 from src.gpt.text_generator import request_chat_completion
 import logging
 
+from src.function_calling.image_classifier import run_agent
 
+
+"""Run the agent."""
+prompt = input("Prompt: ")
+result = run_agent(prompt)
+print(f"Result: {result}")
 
 # Set up logging
-logging.basicConfig(filename='MarketingAI.log',
-                    level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# logging.basicConfig(filename='MarketingAI.log',
+#                     level=logging.INFO,
+#                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-logger = logging.getLogger(__name__)
+# logger = logging.getLogger(__name__)
 
-logger.info('Starting MarketingAI')
-user_prompt: str = input('What shall MarketingAI generate: ')
+# logger.info('Starting MarketingAI')
+# user_prompt: str = input('What shall MarketingAI generate: ')
 
 # Don't use framework:
-prompt_and_parse()
+# prompt_and_parse()
 
 
 # # Use framework:
