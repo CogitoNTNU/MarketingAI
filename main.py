@@ -2,8 +2,8 @@ from src.assembler.image_text_assambler import assemble_image
 from src.image_generation.image_generator import ImageGenerator, create_image_generator, download_and_save_image
 from src.gpt.text_generator import request_chat_completion
 import logging
-
-
+from src.fine_tuning.fine_tuning_job import upload_training_file
+from src.fine_tuning.fine_tuning_job import create_fine_tuning_job
 
 # Set up logging
 logging.basicConfig(filename='PropagandaAI.log',
