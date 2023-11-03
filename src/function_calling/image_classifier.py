@@ -49,13 +49,3 @@ def run_agent(prompt: str) -> str:
     result = agent_chain.run(prompt)
     # logger.info(f"Finished running langchain_function_calling.py, result: {result}")
     return result
-
-def main():
-    """Run the agent."""
-    prompt = input("Prompt: ")
-    result = run_agent(prompt)
-    print(f"Result: {result}")
-
-# main()
-# if __name__ == "__main__":
-#     main()
