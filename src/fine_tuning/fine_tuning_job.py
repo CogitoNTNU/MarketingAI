@@ -1,6 +1,8 @@
 import openai
 from src.config import Config
 
+PATH_TO_DATA = "src/fine_tuning/"
+
 def upload_training_file(file: str) -> str:
     PATH_TO_DATA = "src/fine_tuning/"
     openai.api_key = Config().API_KEY
