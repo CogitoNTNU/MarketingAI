@@ -113,7 +113,7 @@ class StableDiffusionImageGenerator(ImageGenerator):
 
         response = requests.request("POST", url, headers=headers, data=payload)
         sleep(8)
-        print(response.json())
+        logger.info(response.json())
 
         return response.json()["output"][0]
 
