@@ -1,5 +1,4 @@
-from PIL import Image
-from PIL import ImageStat
+from PIL import Image, ImageStat
 
 def chose_color(path:str)->tuple:
     image = Image.open(path)
