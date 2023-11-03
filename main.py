@@ -5,19 +5,12 @@ import logging
 from src.fine_tuning.fine_tuning_job import upload_training_file
 from src.fine_tuning.fine_tuning_job import create_fine_tuning_job
 
-# response = upload_training_file("propaganda.jsonl")
-response = create_fine_tuning_job("file-DQFMQFP33knNe3WU07X5y6Z2", "gpt-3.5-turbo")
-print(response)
-
 # Set up logging
 logging.basicConfig(filename='PropagandaAI.log',
                     level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 logger = logging.getLogger(__name__)
-
-#log the response in a nice format
-logger.info(f"Response: {response}")
 
 logger.info('Starting PropagandaAI')
 user_prompt: str = input('What shall PropogandaAI generate: ')
