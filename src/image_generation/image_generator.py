@@ -51,6 +51,9 @@ class ImageGenerator(ABC):
 def create_image_generator(model_name: str) -> ImageGenerator:
     '''
     Creates an image generator based on the config
+    Args:
+        model_name (str): The name of the model to use. 
+            Either 'dall-e' or 'stable-diffusion'
     Returns:
         An image generator
     '''
