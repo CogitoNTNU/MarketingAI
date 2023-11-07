@@ -12,7 +12,7 @@ except:
     exit(1)
 
 
-def request_chat_completion(previous_message: dict, role: str = "system", message: str = ""): 
+def request_chat_completion(previous_message: dict, role: str = "system", message: str = "", functions: list = []): 
    
     # previous_message = get_system_prompt()
 
@@ -28,7 +28,8 @@ def request_chat_completion(previous_message: dict, role: str = "system", messag
                 messages = [
                     previous_message,
                     {"role": role, "content": message}
-                ]
+                ], 
+                functions = functions
             )
         else: 
             response = openai.ChatCompletion.create(

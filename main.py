@@ -1,59 +1,71 @@
 from src.assembler.image_text_assambler import assemble_image
 from src.image_generation.image_generator import ImageGenerator, create_image_generator, download_and_save_image
 from src.gpt.text_generator import request_chat_completion
+from src.assembler.text_color import chose_color
+from src.assembler.text_size_pos import chose_font_size
+from src.function_calling.image_classifier import run_agent
 import logging
-from PIL import Image
 
-# Set up logging    
-logging.basicConfig(filename='PropagandaAI.log',
-                    level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# """Run the agent."""
+# prompt = input("Prompt: ")
+# result = run_agent(prompt)
+# print(f"Result: {result}")
+
+# Set up logging
+# logging.basicConfig(filename='MarketingAI.log',
+#                     level=logging.INFO,
+#                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 logger = logging.getLogger(__name__)
 
-def generate_image_from_prompt(prompt: str, show_on_screen: bool = False) -> Image:
-    """ Generates an image from a prompt and saves it to file and returns the image"""
-    logger.info('Starting PropagandaAI')
-    # Create the image prompt
-    user_prompt: str = prompt
-    image_prompt = f"(Classic propaganda poster: Bold, primary colors) {user_prompt}"
+logger.info('Starting PropagandaAI')
+user_prompt: str = input('What shall PropogandaAI generate: ')
 
-    # Create caption
-    image_text_template = f"This is a picture of {image_prompt}. Generate a short captivating and relevant caption for a poster. The response should not contain any other information than the caption."
-    image_text = request_chat_completion(None, message=image_text_template)
+# Classify image prompt
+logger.info('Classifying image prompt')
+classification = run_agent(user_prompt)
+print(f"Classification: {classification}")
+image_prompt = "Make a " + classification + " poster from the description: " + user_prompt
 
-    # Combine image and text
-    logger.info('Generating Text on prompt')
-    image_prompt = f"{image_prompt} With the caption '{image_text}'"
-    logger.info(f'Starting image generation based on prompt: {image_prompt}')
-    image_generator: ImageGenerator = create_image_generator("dall-e-3")
-    image_url = image_generator.generate_image(image_prompt, 1024, 1024)
-    logger.info(f"Image url: {image_url}")
+if classification == "propaganda":
+    image_prompt = "Classic propaganda poster: " + user_prompt
+elif classification == "marketing":
+    image_prompt = "Marketing material: Bright, primary colors. " + user_prompt
+elif classification == "meme":
+    image_prompt = "Meme: " + user_prompt
 
-    # Save image to file
-    logger.info('Saving image to file')
-    download_and_save_image(image_url, user_prompt)
+configuration = "Configuration: Do NOT generate text! "
+image_prompt = configuration + image_prompt
 
-    # generate image text
-    logger.info('Generating image text')
-    template = f"This is a picture of {image_prompt}. Generate a short captivating and relevant caption for a poster. The response should not contain any other information than the caption."
-    result = request_chat_completion(None, 'system', template)
-    logger.info(f'Generated image text: {result}')
+# image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful " + user_prompt
+# result: str = request_chat_completion(None, 'system', prompt)["choices"][0]["message"]["content"]
 
-    # Assemble image
-    logger.info('Assembling image')
-    return assemble_image(user_prompt, result, "arial.ttf", 50, (255, 155, 155), (30, 50), show_on_screen)
+# Classify image prompt using function calling
+classification = classify_text(image_prompt)
+print(classification)
+logger.info(f'Classification: {classification}')
 
-def valid_prompt(prompt: str) -> bool:
-    if len(prompt) > 1000:
-        return False
-    # Prompt can not have signs that will not be able to have in file name
-    if any(char in prompt for char in ['/', '\\', ':', '*', '?', '"', '<', '>', '|']):
-        return False
-    return True
+# # Generate descriptive prompt
+# logger.info('Generating descriptive prompt')
+image_prompt = "Generate a " + classification + " poster of: " + user_prompt
 
-if __name__ == "__main__":
-    user_prompt: str = input('What shall PropogandaAI generate: ')
-    while not valid_prompt(user_prompt):
-        user_prompt: str = input('Invalid prompt. What shall PropogandaAI generate: ')
-    generate_image_from_prompt(user_prompt)
+logger.info('Generating Text on prompt')
+logger.info(f'Starting image generation based on prompt: {image_prompt}')
+
+image_generator: ImageGenerator = create_image_generator('dall-e-3')
+image_url = image_generator.generate_image(image_prompt, 1024, 1024)
+logger.info(f"Image url: {image_url}")
+
+# Save image to file
+logger.info('Saving image to file')
+download_and_save_image(image_url, user_prompt)
+
+# generate image text
+logger.info('Generating image text')
+template = f"This is a picture of {image_prompt}. Generate a short captivating and relevant caption for a poster. The response should not contain any other information than the caption."
+result = request_chat_completion(None, 'system', template)
+logger.info(f'Generated image text: {result}')
+# Assemble image
+logger.info('Assembling image')
+assemble_image(user_prompt, result, "arial.ttf", 20, chose_color(user_prompt), (0, 0))
