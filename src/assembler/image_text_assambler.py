@@ -17,8 +17,9 @@ def assemble_image(image_name: str, text: str, font_name: str, font_size: int, t
         text (str): The text to be added to the image.
         font_name (str): The name of the font to be used.
         font_size (int): The size of the font.
-        text_color (tuple): The color of the text.
-        text_position (tuple): The position of the text.
+        text_color (tuple): The three integers representing the hex color of the text, e.g. (255, 255, 255) for white.
+        text_position (tuple): The relative position of the text on the image, e.g. (50, 50) for 50 pixels from the top and 50 pixels from the left.'
+        show (bool): Whether to show the image or not on screen of caller.
     Returns:
         Image: The assembled image with corresponding text.
     """
