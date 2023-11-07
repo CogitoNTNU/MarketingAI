@@ -3,10 +3,8 @@ from src.image_generation.image_generator import ImageGenerator, create_image_ge
 from src.gpt.text_generator import request_chat_completion
 from src.assembler.text_color import chose_color
 from src.assembler.text_size_pos import chose_font_size
-from src.function_calling.image_classifier import classify_text
-import logging
-
 from src.function_calling.image_classifier import run_agent
+import logging
 
 
 # """Run the agent."""
@@ -23,14 +21,31 @@ logger = logging.getLogger(__name__)
 
 logger.info('Starting PropagandaAI')
 user_prompt: str = input('What shall PropogandaAI generate: ')
-image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful " + user_prompt
+
+# Classify image prompt
+logger.info('Classifying image prompt')
+classification = run_agent(user_prompt)
+print(f"Classification: {classification}")
+image_prompt = "Make a " + classification + " poster from the description: " + user_prompt
+
+if classification == "propaganda":
+    image_prompt = "Classic propaganda poster: " + user_prompt
+elif classification == "marketing":
+    image_prompt = "Marketing material: Bright, primary colors. " + user_prompt
+elif classification == "meme":
+    image_prompt = "Meme: " + user_prompt
+
+configuration = "Configuration: Do NOT generate text! "
+image_prompt = configuration + image_prompt
+
+# image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful " + user_prompt
 # result: str = request_chat_completion(None, 'system', prompt)["choices"][0]["message"]["content"]
 
 logger.info('Generating Text on prompt')
 logger.info(f'Starting image generation based on prompt: {image_prompt}')
 
-image_generator: ImageGenerator = create_image_generator('dall-e')
-image_url = image_generator.generate_image(image_prompt, 512, 512)
+image_generator: ImageGenerator = create_image_generator('dall-e-3')
+image_url = image_generator.generate_image(image_prompt, 1024, 1024)
 logger.info(f"Image url: {image_url}")
 
 # Save image to file
@@ -44,4 +59,4 @@ result = request_chat_completion(None, 'system', template)
 logger.info(f'Generated image text: {result}')
 # Assemble image
 logger.info('Assembling image')
-assemble_image(user_prompt, result, "arial.ttf", chose_font_size(user_prompt, result, "arial.ttf", 512, 512), chose_color(user_prompt), (30, 50))
+assemble_image(user_prompt, result, "arial.ttf", 20, chose_color(user_prompt), (0, 0))
