@@ -20,8 +20,8 @@ image_prompt = user_prompt + "(Classic propaganda poster: Bold, primary colors) 
 logger.info('Generating Text on prompt')
 logger.info(f'Starting image generation based on prompt: {image_prompt}')
 
-image_generator: ImageGenerator = create_image_generator('stable-diffusion')
-image_url = image_generator.generate_image(image_prompt, 512, 512)
+image_generator: ImageGenerator = create_image_generator("dall-e-3")
+image_url = image_generator.generate_image(image_prompt, 1024, 1024)
 logger.info(f"Image url: {image_url}")
 
 # Save image to file
