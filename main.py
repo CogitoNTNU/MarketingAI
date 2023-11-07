@@ -3,6 +3,7 @@ from src.image_generation.image_generator import ImageGenerator, create_image_ge
 from src.gpt.text_generator import request_chat_completion
 from src.assembler.text_color import chose_color
 from src.assembler.text_size_pos import chose_font_size
+from src.function_calling.image_classifier import classify_text
 import logging
 
 logging.basicConfig(filename='PropagandaAI.log',
@@ -15,6 +16,15 @@ logger.info('Starting PropagandaAI')
 user_prompt: str = input('What shall PropogandaAI generate: ')
 image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful " + user_prompt
 # result: str = request_chat_completion(None, 'system', prompt)["choices"][0]["message"]["content"]
+
+# Classify image prompt using function calling
+classification = classify_text(image_prompt)
+print(classification)
+logger.info(f'Classification: {classification}')
+
+# # Generate descriptive prompt
+# logger.info('Generating descriptive prompt')
+image_prompt = "Generate a " + classification + " poster of: " + user_prompt
 
 logger.info('Generating Text on prompt')
 logger.info(f'Starting image generation based on prompt: {image_prompt}')
@@ -34,4 +44,4 @@ result = request_chat_completion(None, 'system', template)
 logger.info(f'Generated image text: {result}')
 # Assemble image
 logger.info('Assembling image')
-assemble_image(user_prompt, result, "arial.ttf", chose_font_size(user_prompt, result, "arial.ttf", 512, 512), chose_color(user_prompt), (30, 50))
+assemble_image(user_prompt, result, "arial.ttf", 20, chose_color(user_prompt), (0, 0))

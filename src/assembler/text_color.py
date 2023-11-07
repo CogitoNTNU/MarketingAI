@@ -1,6 +1,10 @@
 from PIL import Image, ImageStat
+import os
+
+base_path = os.path.dirname(os.path.abspath("__main__"))
 
 def chose_color(path:str)->tuple:
+    path = base_path + "/data/raw_images/" + path + ".png"
     image = Image.open(path)
 
     # Convert the image to grayscale
