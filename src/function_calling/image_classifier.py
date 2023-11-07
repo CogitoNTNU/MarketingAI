@@ -1,42 +1,31 @@
+import logging
 from langchain.llms.openai import OpenAI
 from langchain.tools import StructuredTool
 from langchain.agents import AgentType
 from langchain.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent
-import logging
-
+from src.gpt.text_generator import request_chat_completion
 from src.config import Config
 
-# Set up logging
 logger = logging.getLogger(__name__)
 
 
+def classify_text(text: str) -> str:
+    """Classify text into one of three categories: meme, propaganda, marketing."""
+    if not isinstance(text, str):
+        raise TypeError("Text must be a string.")
 
-def add(a: int, b: int) -> int:
-    """Add two numbers"""
-    return a + b
+    # Use gpt to classify 
+    gpt_str = "Classify this text into one of three categories: meme, propaganda, marketing. \"" + text + "\". Response should be one of the three categories."
+    result = request_chat_completion(previous_message={}, message=gpt_str)
 
-# Give the agent a list of tools to use
-def dummy_function(prompt: str) -> str:
-    """
-    Narrate the story based on the given prompt.
-    """
-
-    logger.info(f"Running dummy_function with prompt: {prompt}")
-    return prompt
+    return "Classify this text into one of three categories: meme, propaganda, marketing. \"" + result + "\". Response should be one of the three categories."
 
 tools: list[StructuredTool] = [
     StructuredTool.from_function(
-        name= "A dummy function", 
-        func=dummy_function, 
-        description="Generates a NPC based on the given prompt.",
-        # args_schema={"prompt": {"type": "string", "minLength": 1, "maxLength": 1000}},
-    ),
-    StructuredTool.from_function(
-        name= "Add two numbers", 
-        func=add, 
-        description="Adds two numbers together.",
-        # args_schema={"a": {"type": "integer"}, "b": {"type": "integer"}},
+        name= "Classify Text", 
+        func=classify_text, 
+        description="Classify text into one of three categories: meme, propaganda, marketing.",
     ),
 ]
 
@@ -50,7 +39,7 @@ agent_chain = initialize_agent(
     agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
     verbose=True, 
     memory=memory,
-    max_iterations=2,
+    max_iterations=10,
     )
 
 def run_agent(prompt: str) -> str:
@@ -64,4 +53,3 @@ def run_agent(prompt: str) -> str:
     result = agent_chain.run(prompt)
     logger.info(f"Finished running langchain_function_calling.py, result: {result}")
     return result
-
