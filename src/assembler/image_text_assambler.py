@@ -8,7 +8,7 @@ FONT_PATH  = "data/fonts/"
 
 IMAGE_SUFFIX = ".png"
 
-def assemble_image(image_name: str, text: str, font_name: str, font_size: int, text_color: Tuple[int, int, int], text_position: Tuple[int, int]) -> Image:
+def assemble_image(image_name: str, text: str, font_name: str, font_size: int, text_color: Tuple[int, int, int], text_position: Tuple[int, int], show: bool = False) -> Image:
     """
     Assemble an image with custom text.
 
@@ -40,7 +40,8 @@ def assemble_image(image_name: str, text: str, font_name: str, font_size: int, t
 
     # Save or display the image
     image.save(SAVE_PATH + image_name + IMAGE_SUFFIX)
-    image.show()
+    if show:
+        image.show()
     return Image
 
 if __name__ == "__main__":
