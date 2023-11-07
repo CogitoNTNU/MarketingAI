@@ -58,6 +58,7 @@ def create_image_generator(model_name: str) -> ImageGenerator:
         An image generator
     '''
     model_name = model_name.lower()
+    logger.info(f'Creating image generator for model: {model_name}')
     if model_name == 'dall-e':
         image_generator = DallEImageGenerator("dall-e-2")
     elif model_name == 'dall-e-3':
