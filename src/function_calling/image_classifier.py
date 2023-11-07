@@ -1,3 +1,4 @@
+import logging
 from langchain.llms.openai import OpenAI
 from langchain.tools import StructuredTool
 from langchain.agents import AgentType
@@ -5,6 +6,9 @@ from langchain.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent
 from src.gpt.text_generator import request_chat_completion
 from src.config import Config
+
+logger = logging.getLogger(__name__)
+
 
 def classify_text(text: str) -> str:
     """Classify text into one of three categories: meme, propaganda, marketing."""
@@ -47,15 +51,5 @@ def run_agent(prompt: str) -> str:
         raise ValueError("Prompt must be at least 1 character or less than 1000 characters.")
     
     result = agent_chain.run(prompt)
-    # logger.info(f"Finished running langchain_function_calling.py, result: {result}")
+    logger.info(f"Finished running langchain_function_calling.py, result: {result}")
     return result
-
-def main():
-    """Run the agent."""
-    prompt = input("Prompt: ")
-    result = run_agent(prompt)
-    print(f"Result: {result}")
-
-# main()
-# if __name__ == "__main__":
-#     main()
