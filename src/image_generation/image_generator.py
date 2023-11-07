@@ -59,8 +59,9 @@ def create_image_generator(model_name: str) -> ImageGenerator:
     '''
     model_name = model_name.lower()
     if model_name == 'dall-e':
-        image_generator = DallEImageGenerator()
-
+        image_generator = DallEImageGenerator("dall-e-2")
+    elif model_name == 'dall-e-3':
+        image_generator = DallEImageGenerator("dall-e-3")
     elif model_name == 'stable-diffusion':
         image_generator = StableDiffusionImageGenerator()
     else:
@@ -126,11 +127,15 @@ class DallEImageGenerator(ImageGenerator):
     """
     MAX_PROMPT_LENGTH = 1000
     SUPPORTED_SIZES = [256, 512, 1024]
-
-    def get_user_prompt(self) -> str:
-        image_prompt = input('What do you want to generate an image of? ')
-        self._validate_prompt(image_prompt)
-        return image_prompt
+    def __init__(self, model_version: str = 'dall-e-3') -> None:
+        '''
+        Args:
+            model_version (str): The version of the model to use. 
+                Either 'dall-e-2' or 'dall-e-3'
+        '''
+        if model_version not in ['dall-e-2', 'dall-e-3']:
+            raise ValueError(f'Invalid model version: {model_version}')
+        self.model_version = model_version
 
     def _validate_prompt(self, image_prompt: str) -> None:
         if not isinstance(image_prompt, str):
@@ -171,6 +176,7 @@ class DallEImageGenerator(ImageGenerator):
         openai.api_key = Config().API_KEY
         response = openai.Image.create(
             prompt=image_prompt,
+            model=self.model_version,
             n=1,
             size=size
         )

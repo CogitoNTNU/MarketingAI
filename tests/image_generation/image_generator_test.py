@@ -1,10 +1,37 @@
 import pytest
 
-from src.image_generation.image_generator import ImageGenerator, create_image_generator, DallEImageGenerator
+from src.image_generation.image_generator import ImageGenerator, StableDiffusionImageGenerator, create_image_generator, DallEImageGenerator
 
 @pytest.fixture
 def image_generator() -> ImageGenerator:
     return create_image_generator('dall-e')
+
+def test_create_image_generator_invalid_input():
+    # If it throws an error, it works if does not throw an error, it does not work
+    # Given
+    model_name = 'invalid-model'
+    
+    # When & Then
+    with pytest.raises(ValueError) as e:
+        create_image_generator(model_name)
+    
+    assert str(e.value) == f'Invalid model name: {model_name}'
+
+def test_create_image_generator_valid_input():
+    # Given
+    model_dall_e = 'dall-e'
+    model_dall_e_3 = 'dall-e-3'
+    model_stable_diffusion = 'stable-diffusion'
+
+    
+    # When
+    dall_e_2 = create_image_generator(model_dall_e)
+    dall_e_3 = create_image_generator(model_dall_e_3)
+    stable_diffusion = create_image_generator(model_stable_diffusion)
+    # Then
+    assert isinstance(dall_e_2, DallEImageGenerator)
+    assert isinstance(dall_e_3, DallEImageGenerator)
+    assert isinstance(stable_diffusion, StableDiffusionImageGenerator)
 
 
 def test_image_generation_with_empty_string_prompt(image_generator):
