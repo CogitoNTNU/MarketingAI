@@ -41,6 +41,15 @@ image_prompt = configuration + image_prompt
 # image_prompt = "Classic propaganda poster: Bold, primary colors with a powerful " + user_prompt
 # result: str = request_chat_completion(None, 'system', prompt)["choices"][0]["message"]["content"]
 
+# Classify image prompt using function calling
+classification = classify_text(image_prompt)
+print(classification)
+logger.info(f'Classification: {classification}')
+
+# # Generate descriptive prompt
+# logger.info('Generating descriptive prompt')
+image_prompt = "Generate a " + classification + " poster of: " + user_prompt
+
 logger.info('Generating Text on prompt')
 logger.info(f'Starting image generation based on prompt: {image_prompt}')
 
