@@ -39,7 +39,7 @@ def assemble_image(image_name: str, text: str, font_name: str, font_size: int, t
     # Add text to the image
     draw.text(text_position, text, font=font, fill=text_color)
 
-    # Save or display the image
+    # Save and display the image
     image.save(SAVE_PATH + image_name + IMAGE_SUFFIX)
     if show:
         image.show()
