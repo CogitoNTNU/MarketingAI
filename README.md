@@ -12,11 +12,12 @@
 </div>
 
 ## Table of contents
-1. [Introduction](#Introduction)
-2. [Setup](#Setup)
-3. [Usage](#Usage)
-4. [Tests](#Tests)
-5. [Repository structure](#Repository-structure)
+1. [Introduction](#introduction)
+3. [Setup](#setup)
+4. [Usage](#usage)
+5. [Tests](#tests)
+6. [Repository Structure](#repository-structure)
+7. [Contributors](#contributors)
 
 
 ## Introduction
@@ -29,7 +30,7 @@
 **Our goal:** A software application is that allows users to input specific themes or topics for a meme or Marketing poster. Following this input, the application should be capable of autonomously generating relevant imagery and accompanying text. Subsequently, it should seamlessly integrate these elements to produce a cohesive poster
 
 ## Setup
-To setup the project, one needs to have alle the prerequisites installed. Then one needs to clone the repository, setup a virtual environment, and install the dependencies. This is described in more detail below.
+To setup the project, one needs to have all the prerequisites installed. Then one needs to clone the repository, setup a virtual environment, and install the dependencies. This is described in more detail below.
 
 ### Prerequisites
 Make sure you have Python installed on your machine. This project is developed using Python 3.9 or newer.
@@ -39,7 +40,8 @@ git clone https://github.com/CogitoNTNU/MarketingAI.git
 cd MarketingAI
 ```
 
-### Setup virtual environment
+### Virtual Environment (Recommended)
+Using a virtual environment helps manage dependencies and keeps your system tidy.
 ```bash
 pip install virtualenv
 ```
@@ -72,12 +74,13 @@ Then select the relevant virtual environment as shown
 
 ![img](/docs/img/vscodeSettup.png)
 
-Now you can utilize all the installed goodies form the environment ;)
+Now you can utilize all the installed goodies from the environment ;)
 
 ### Create a .env file
 Create a file called `.env` in the root of the project. This file should contain the following:
 * API_KEY: The API key for the OpenAI API.
 
+If you do not have an OpenAI API Key visit [OpenAI/API-Keys](https://platform.openai.com/api-keys) and generate a key
 NOTE: Never Commit .env to Version Control. The .env file should be kept private and never be committed to public repositories as it contains secretes like API keys.
   
 ```bash
