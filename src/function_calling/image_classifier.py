@@ -37,7 +37,7 @@ agent_chain = initialize_agent(
     tools, 
     llm, 
     agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
-    verbose=True, 
+    verbose=False, 
     memory=memory,
     max_iterations=10,
     )
