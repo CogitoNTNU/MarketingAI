@@ -100,6 +100,11 @@ To run the full test suit, run the following command:
 pytest
 ```
 
+To run all tests except api tests, run the following command:
+```bash
+pytest -m "not apitest"
+```
+
 ## Repository structure
 * **docs/:** Store all your documentation here. Architectural diagrams, architectural decisions reasoning, and API references.
 
