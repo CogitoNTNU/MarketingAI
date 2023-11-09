@@ -22,7 +22,7 @@
 ## Introduction
 <div align="center">
 
-![HelloMarketingAI](data/assembled_images/HelloMarketingAI.png)
+![HelloMarketingAI](images/assembled_images/HelloMarketingAI.png)
 
 </div>
 
