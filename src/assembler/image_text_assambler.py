@@ -2,9 +2,9 @@ from typing import Tuple
 from PIL import Image, ImageDraw, ImageFont
 
 
-SAVE_PATH  = "data/assembled_images/"
-IMAGE_PATH = "data/raw_images/"
-FONT_PATH  = "data/fonts/"
+SAVE_PATH  = "images/assembled_images/"
+IMAGE_PATH = "images/raw_images/"
+FONT_PATH  = "images/fonts/"
 
 IMAGE_SUFFIX = ".png"
 

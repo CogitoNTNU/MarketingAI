@@ -188,7 +188,7 @@ class DallEImageGenerator(ImageGenerator):
         return parse_url
     
 
-SAVE_PATH = "data/raw_images/"
+SAVE_PATH = "images/raw_images/"
 
 def download_and_save_image(image_url: str, image_name: str) -> None:
     """ Download and save an image from a given URL. """
