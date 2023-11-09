@@ -3,7 +3,7 @@ from src.image_generation.image_generator import ImageGenerator, create_image_ge
 from src.gpt.text_generator import request_chat_completion
 from src.assembler.text_color import chose_color
 from src.assembler.text_size_pos import chose_font_size
-from src.function_calling.image_classifier import run_agent
+from src.function_calling.image_classifier import run_agent, classify_text
 import logging
 
 
