@@ -88,7 +88,10 @@ echo "API_KEY=YOUR_API_KEY" > .env # Remember to change YOUR_API_KEY to your act
 
 
 ## Usage
-
+To use the project, you can run the following command:
+```bash
+python main.py
+```
 
 
 ## Tests
