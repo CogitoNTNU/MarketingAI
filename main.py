@@ -2,8 +2,7 @@ from src.assembler.image_text_assambler import assemble_image
 from src.image_generation.image_generator import ImageGenerator, create_image_generator, download_and_save_image
 from src.gpt.text_generator import request_chat_completion
 from src.assembler.text_color import chose_color
-from src.assembler.text_size_pos import chose_font_size
-from src.function_calling.image_classifier import run_agent, classify_text
+from src.function_calling.image_classifier import run_agent, get_image_template
 import logging
 
 
@@ -24,14 +23,7 @@ def generate_image_from_prompt(user_prompt: str, show_on_screen: bool = False) -
     classification = run_agent(user_prompt)
     logger.info(f'Classification: {classification}')
 
-    if classification == "propaganda":
-        image_prompt = "Classic propaganda poster: Bold, primary colors" + user_prompt
-    elif classification == "marketing":
-        image_prompt = "Marketing material: Bright, primary colors. " + user_prompt
-    elif classification == "meme":
-        image_prompt = "Meme: " + user_prompt
-    else: 
-        image_prompt = "Poster: " + user_prompt
+    image_prompt = get_image_template(user_prompt, classification)
 
     logger.info('Generating Text on prompt')
     logger.info(f'Starting image generation based on prompt: {image_prompt}')

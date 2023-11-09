@@ -10,6 +10,23 @@ from src.config import Config
 logger = logging.getLogger(__name__)
 
 
+def get_image_template(user_prompt: str, classification: str) -> str:
+    """
+    Generate image template based on classification.
+    Args:
+        user_prompt: User prompt for image.
+        classification: Classification of image. Recognized classifications are: meme, propaganda, marketing.
+    """
+    if classification == "propaganda":
+        image_prompt = "Classic propaganda poster: Bold, primary colors" + user_prompt
+    elif classification == "marketing":
+        image_prompt = "Marketing material: Bright, primary colors. " + user_prompt
+    elif classification == "meme":
+        image_prompt = "Meme: " + user_prompt
+    else: 
+        image_prompt = "Poster: " + user_prompt
+    return image_prompt
+
 def classify_text(text: str) -> str:
     """Classify text into one of three categories: meme, propaganda, marketing."""
     if not isinstance(text, str):
