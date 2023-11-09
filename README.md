@@ -104,14 +104,13 @@ pytest
 * **docs/:** Store all your documentation here. Architectural diagrams, architectural decisions reasoning, and API references.
 
 * **src/:** Main source code directory.
-  * **gpt/:** Code related to finetuning and utilizing the GPT model.
-  * **image_generation/:** Code for generating images from prompts.
   * **assembler/:** Code that takes the generated text and image and assembles the picture.
+  * **fine_tuning/:** Code for fine-tuning the GPT model, and data used for it.
+  * **function_calling/:** All code for letting agents call the functions and agent chains.
+  * **gpt/:** Code related to chat Completion.
+  * **image_generation/:** Code for generating images from prompts.
 * **tests/:** Unit tests, integration tests, and any other testing code.
-
-* **models/:** If you have any pre-trained models or model checkpoints, they can be stored here.
-* **data/:** All training data, test data, and any other data used in the project should be stored here. This does not include configuration files.
-
+* **images/:** All images created by the program both raw images and the assembled images.
 
 ## Contributors
 <table>
