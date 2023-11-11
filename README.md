@@ -13,11 +13,11 @@
 
 ## Table of contents
 1. [Introduction](#introduction)
-3. [Setup](#setup)
-4. [Usage](#usage)
-5. [Tests](#tests)
-6. [Repository Structure](#repository-structure)
-7. [Contributors](#contributors)
+2. [Setup](#setup)
+3. [Usage](#usage)
+4. [Tests](#tests)
+5. [Repository Structure](#repository-structure)
+6. [Contributors](#contributors)
 
 
 ## Introduction
@@ -43,27 +43,33 @@ cd MarketingAI
 <details> 
 <summary><strong>🚀 A better way to set up repositories </strong></summary>
 
-Using a virtual environment helps manage dependencies and keeps your system tidy.
+A virtual environment in Python is a self-contained directory that contains a Python installation for a particular version of Python, plus a number of additional packages. Using a virtual environment for your project ensures that the project's dependencies are isolated from the system-wide Python and other Python projects. This is especially useful when working on multiple projects with differing dependencies, as it prevents potential conflicts between packages and allows for easy management of requirements.
+
+1. ### To set up and use a virtual environment for MarketingAI:
+First, install the virtualenv package using pip. This tool helps create isolated Python environments.
 ```bash
 pip install virtualenv
 ```
 
-### Create virtual environment
+2. ### Create virtual environment
+Next, create a new virtual environment in the project directory. This environment is a directory containing a complete Python environment (interpreter and other necessary files).
 ```bash
 python -m venv venv
 ```
+4. ### Activate virtual environment
+To activate the environment, run the following command:
+* For windows:
+    ```bash
+    source ./venv/Scripts/activate
+    ```
 
-For windows:
-```bash
-source ./venv/Scripts/activate
-```
+* For Linux / MacOS:
+    ```bash
+    source venv/bin/activate
+    ```
 
-For Linux / MacOS:
-```bash
-source venv/bin/activate
-```
 
-### Settup VSCode with virtual environment
+### Settup VSCode with virtual environment (Optional for VSCode users)
 With VSCode opened press ```Ctrl+Shift+P``` and search for ```python: Select Interpreter``` and click on it
 
 Then select the relevant virtual environment as shown
@@ -71,31 +77,40 @@ Then select the relevant virtual environment as shown
 ![Vscode setup](/docs/img/vscodeSettup.png)
 
 Now you can utilize all the installed goodies from the environment ;)
-
 </details>
 
 ### Install dependencies
-Once inside the virtual environment, you can install the required packages:
+With the virtual environment activated, install the project dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+The requirements.txt file contains a list of packages necessary to run MarketingAI. Installing them in an activated virtual environment ensures they are available to the project without affecting other Python projects or system settings.
 
 ### Create a .env file
-Create a file called `.env` in the root of the project. This file should contain the following:
-* API_KEY: The API key for the OpenAI API.
+For secure and efficient management of environment-specific variables, MarketingAI utilizes a `.env` file. This file is used to store sensitive information, such as API keys, which should not be hard-coded into the source code or shared publicly. The `.env` file is particularly crucial for maintaining the confidentiality of your API keys and other sensitive data.
 
-If you do not have an OpenAI API Key visit [OpenAI/API-Keys](https://platform.openai.com/api-keys) and generate a key.
-NOTE: Never Commit .env to Version Control. The .env file should be kept private and never be committed to public repositories as it contains secretes like API keys.
-  
-```bash
-touch .env
-echo "API_KEY=YOUR_API_KEY" > .env # Remember to change YOUR_API_KEY to your actual API key
-```
+**Important:** The `.env` file should never be committed to version control (e.g., GitHub). Always include `.env` in your `.gitignore` file to prevent accidental upload of sensitive information.
 
+#### Steps to Create and Configure the .env File:
 
+1. **Create the .env File:**
+   In the root directory of the project, create a new file named `.env`. This file will be used to store environment variables.
+   ```bash
+    touch .env
+    ```
+
+2. **Add Environment Variables:**
+    ```bash
+    echo "API_KEY=YOUR_API_KEY" > .env # Remember to change YOUR_API_KEY to your actual API key
+    ```
+
+3. **Obtaining an API Key:**
+    If you don't have an API key from OpenAI, you can obtain one by visiting [OpenAI API Keys](https://platform.openai.com/api-keys). Follow their instructions to generate a new API key.
+
+    By following these steps, you'll ensure that your application has all the necessary environment-specific configurations, while keeping sensitive data secure and out of version control.
 
 ## Usage
-To use the project, you can run the following command:
+To run MarketingAI, navigate to the project's root directory in your command line interface and execute the following command:
 ```bash
 python main.py
 ```
@@ -186,3 +201,6 @@ pytest -m "not apitest"
 </table>
 
 This project could not have been possible without all of the wonderful contributors. Thank you all for your hard work!
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
