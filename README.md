@@ -21,11 +21,7 @@
 
 
 ## Introduction
-<div align="center">
-
-![HelloMarketingAI](images/assembled_images/HelloMarketingAI.png)
-
-</div>
+MarketingAI is a sophisticated software application designed to empower users in creating impactful marketing materials. MarketingAI caters to marketers, content creators, and anyone looking for an automated, creative solution for their advertising needs.
 
 **Our goal:** A software application is that allows users to input specific themes or topics for a meme or Marketing poster. Following this input, the application should be capable of autonomously generating relevant imagery and accompanying text. Subsequently, it should seamlessly integrate these elements to produce a cohesive poster
 
