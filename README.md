@@ -39,6 +39,10 @@ cd MarketingAI
 ```
 
 ### Virtual Environment (Recommended)
+
+<details> 
+<summary><strong>🚀 A better way to set up repositories </strong></summary>
+
 Using a virtual environment helps manage dependencies and keeps your system tidy.
 ```bash
 pip install virtualenv
@@ -59,26 +63,28 @@ For Linux / MacOS:
 source venv/bin/activate
 ```
 
+### Settup VSCode with virtual environment
+With VSCode opened press ```Ctrl+Shift+P``` and search for ```python: Select Interpreter``` and click on it
+
+Then select the relevant virtual environment as shown
+
+![Vscode setup](/docs/img/vscodeSettup.png)
+
+Now you can utilize all the installed goodies from the environment ;)
+
+</details>
+
 ### Install dependencies
 Once inside the virtual environment, you can install the required packages:
 ```bash
 pip install -r requirements.txt
 ```
 
-### Settup VSCode with virtual environment
-With VSCode opened press ```Ctrl+Shift+P``` and search for ```python: Select Interpreter``` and click on it
-
-Then select the relevant virtual environment as shown
-
-![img](/docs/img/vscodeSettup.png)
-
-Now you can utilize all the installed goodies from the environment ;)
-
 ### Create a .env file
 Create a file called `.env` in the root of the project. This file should contain the following:
 * API_KEY: The API key for the OpenAI API.
 
-If you do not have an OpenAI API Key visit [OpenAI/API-Keys](https://platform.openai.com/api-keys) and generate a key
+If you do not have an OpenAI API Key visit [OpenAI/API-Keys](https://platform.openai.com/api-keys) and generate a key.
 NOTE: Never Commit .env to Version Control. The .env file should be kept private and never be committed to public repositories as it contains secretes like API keys.
   
 ```bash
@@ -93,7 +99,6 @@ To use the project, you can run the following command:
 ```bash
 python main.py
 ```
-
 
 ## Tests
 To run the full test suit, run the following command:
