@@ -29,7 +29,9 @@ MarketingAI is a sophisticated software application designed to empower users in
 To setup the project, one needs to have all the prerequisites installed. Then one needs to clone the repository, setup a virtual environment, and install the dependencies. This is described in more detail below.
 
 ### Prerequisites
-Make sure you have Python installed on your machine. This project is developed using Python 3.9 or newer.
+- Ensure Python 3.9 or newer is installed on your machine. [Download Python](https://www.python.org/downloads/)
+- Familiarity with basic Python package management and virtual environments is beneficial.
+
 ### Clone the repository
 ```bash
 git clone https://github.com/CogitoNTNU/MarketingAI.git
