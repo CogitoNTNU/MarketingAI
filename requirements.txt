@@ -20,7 +20,7 @@ iniconfig==2.0.0
 jsonpatch==1.33
 jsonpointer==2.4
 langchain==0.0.332
-langsmith==0.0.62
+langsmith==0.0.63
 marshmallow==3.20.1
 multidict==6.0.4
 mypy-extensions==1.0.0
