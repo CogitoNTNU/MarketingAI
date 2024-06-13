@@ -61,7 +61,7 @@ A virtual environment in Python is a self-contained directory that contains a Py
     To activate the environment, run the following command:
     * For windows:
         ```bash
-        source ./venv/Scripts/activate
+        ./venv/Scripts/activate
         ```
 
     * For Linux / MacOS:
