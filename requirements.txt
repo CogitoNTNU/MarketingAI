@@ -24,7 +24,7 @@ langsmith==0.0.62
 marshmallow==3.20.1
 multidict==6.0.4
 mypy-extensions==1.0.0
-numpy==1.26.1
+numpy==1.26.3
 openai==0.28.1
 packaging==23.2
 Pillow==10.1.0
